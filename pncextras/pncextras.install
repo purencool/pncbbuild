@@ -1,0 +1,25 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the standard installation profile.
+ */
+
+// Enable default permissions for system roles.
+//$filtered_html_permission = filter_permission_name($filtered_html_format);
+//user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
+//user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+
+// Create a default role for site administrators, with all available permissions assigned.
+$editor_role = new stdClass();
+$editor_role->name = 'Editor';
+$editor_role->weight = 1;
+user_role_save($editor_role);
+user_role_grant_permissions($editor_role->rid, array_keys(module_invoke_all('permission')));
+
+// Set this as the administrator role.
+variable_set('user_admin_role', $editor_role->rid);
+
+// Assign user 1 the "administrator" role.
+db_insert('users_roles')
+  ->fields(array('uid' => 1, 'rid' => $editor_role->rid))
+  ->execute();
