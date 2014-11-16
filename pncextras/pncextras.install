@@ -6,7 +6,7 @@
 
 // extra roll called editor.
 $editor_role = new stdClass();
-$editor_role->rid = 4
+$editor_role->rid = 4;
 $editor_role->name = 'editor';
 $editor_role->weight = 4;
 user_role_save($editor_role);
