@@ -7,14 +7,9 @@
 // extra roll called editor.
 $editor_role = new stdClass();
 $editor_role->name = 'editor';
-$editor_role->weight = 4;
+$editor_role->weight = 3;
 user_role_save($editor_role);
 user_role_grant_permissions($editor_role->rid, array_keys(module_invoke_all('permission')));
 
 // Set this as the administrator role.
 variable_set('user_admin_role', $editor_role->rid);
-
-// Assign user 1 the "administrator" role.
-db_insert('users_roles')
-  ->fields(array('uid' => 3, 'rid' => $editor_role->rid))
-  ->execute();
