@@ -1,15 +1,10 @@
 <?php
 /**
  * @file
- * Install, update and uninstall functions for the standard installation profile.
+ * Added extra to standard drupal build.
  */
 
-// Enable default permissions for system roles.
-//$filtered_html_permission = filter_permission_name($filtered_html_format);
-//user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-//user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
-
-// Create a default role for site administrators, with all available permissions assigned.
+// extra roll called editor.
 $editor_role = new stdClass();
 $editor_role->name = 'Editor';
 $editor_role->weight = 1;
