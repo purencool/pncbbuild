@@ -1,4 +1,5 @@
 name = Purecool extras
 description = Purencool extras are minor changes that are not in the standard Drupal build.
 version = 1.0
+package = Purencool extras
 core = 7.x
