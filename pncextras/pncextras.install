@@ -12,4 +12,4 @@ user_role_save($editor_role);
 user_role_grant_permissions($editor_role->rid, array_keys(module_invoke_all('permission')));
 
 // Set this as the administrator role.
-variable_set('user_admin_role', $editor_role->rid);
+//variable_set('user_admin_role', $editor_role->rid);
