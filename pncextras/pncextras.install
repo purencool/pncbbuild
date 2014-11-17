@@ -4,12 +4,25 @@
  * Added extra to standard drupal build.
  */
 
+//-- Does role exit
+$editor_existance = db_query('
+  SELECT rid  FROM role WHERE name = :name',
+  array(':name' => 'editor'))->fetchField();
+  
 // extra roll called editor.
-$editor_role = new stdClass();
-$editor_role->name = 'editor';
-$editor_role->weight = 3;
-user_role_save($editor_role);
-user_role_grant_permissions($editor_role->rid, array_keys(module_invoke_all('permission')));
+if($editor_existance == ''){
 
-// Set this as the administrator role.
-//variable_set('user_admin_role', $editor_role->rid);
+  $editor_role = new stdClass();
+  $editor_role->name = 'editor';
+  $editor_role->weight = 3;
+  user_role_save($editor_role);
+  $editor_id = $editor_role->rid;
+
+  // Permissions to assign to the role.
+  $perms = array(
+    'access content',
+  );
+
+   // Grant the permissions.
+   user_role_grant_permissions($editor_id, $perms);
+}
