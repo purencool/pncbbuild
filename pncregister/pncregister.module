@@ -48,10 +48,10 @@ function _pncregister_content() {
  * Implements hook_theme().
  */
 function pncregister_theme() {
-	$themes['pnc_register'] = array(
+	$themes['pncregister'] = array(
 	    //'variables' => $vars,
 	    'template' => 'block--pncregister',
-	    'path' => drupal_get_path('module', 'pnc_register'),
+	    'path' => drupal_get_path('module', 'pncregister'),
 	  );
 
 	return $themes;

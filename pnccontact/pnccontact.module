@@ -12,7 +12,7 @@ function pnccontact_block_info() {
 $blocks = array();
 
 $blocks['purencool_contact'] = array(
-    'info' => t('Purencool Contact'),
+    'info' => t('Purencool contact'),
     'cache' => DRUPAL_NO_CACHE
     );
  return $blocks;
