@@ -8,7 +8,7 @@
 $editor_existance = db_query('
   SELECT rid  FROM role WHERE name = :name',
   array(':name' => 'editor'))->fetchField();
-  
+
 // extra roll called editor.
 if($editor_existance == ''){
 

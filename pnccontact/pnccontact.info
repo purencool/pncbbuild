@@ -1,0 +1,5 @@
+name = Purencool contact block
+description = Creates a block from the contact form
+version = 1.0
+package = Purencool
+core = 7.x

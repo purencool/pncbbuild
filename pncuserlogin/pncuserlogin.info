@@ -1,0 +1,5 @@
+name = Purencool login block
+description = Creates a user login block
+version = 1.0
+package = Purencool
+core = 7.x

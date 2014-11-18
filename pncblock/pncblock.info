@@ -1,0 +1,5 @@
+name = Purencool block
+description = Creates a generic block
+version = 1.0
+package = Purencool
+core = 7.x

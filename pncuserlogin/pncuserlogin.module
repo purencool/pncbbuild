@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ * Gets the user login form and adds it to a block.
+ *
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function pncuserlogin_block_info(){
+  $block['pnc_user_login'] = array(
+    'info' => t('Purencool user login'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $block;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function pncuserlogin_block_view($delta = ''){
+  $block = array();
+
+  switch($delta) {
+    case "pnc_user_login":
+      $loginForm =  drupal_get_form('user_login');
+      $block['subject'] = t("");
+      $block['content'] = drupal_render($loginForm);
+  }
+
+  return $block;
+}

@@ -1,0 +1,47 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Adds a generic block to the build with content of the users choice.
+ *
+ */
+
+
+function pncblock_block_info() {
+$blocks = array();
+
+$blocks['purencool_block'] = array(
+    'info' => t('Purencool block'),
+    'cache' => DRUPAL_NO_CACHE
+    );
+ return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function pncblock_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'purencool_block':
+      $block = array(
+        'subject' => t('General block'),
+        'content' => _pnc_get_block_info(),
+      );
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Adds content to the block
+ * @return string
+ */
+function _pnc_get_block_info() {
+
+  $output = "generic block content";
+
+  return $output;
+}

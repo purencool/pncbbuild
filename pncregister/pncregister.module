@@ -1,0 +1,58 @@
+<?php
+/**
+ * @file
+ * Gets the user registration form and adds it to a block.
+ *
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function pncregister_block_info() {
+  $blocks = array();
+  $blocks['pnc_register'] = array(
+    'info' => t('User Registration Block'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function pncregister_block_view($delta = '') {
+  $block ='';
+  switch ($delta) {
+  case 'pnc_register':
+    //-- if user is logged in it will not show
+    if(!user_is_logged_in()){
+      $block['subject'] = t('Register form');
+      $block['content'] = theme('pnc_register', _pnc_register_content());
+    }
+    break;
+  }
+  return $block;
+}
+
+
+function _pncregister_content() {
+   $return = array(
+     'block' => array(),
+     'block_html_id' => 'pnc-register',
+     'content' => drupal_get_form('user_register_form'),
+     'subject' => 'PNC Register'
+   );
+   return $return;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function pncregister_theme() {
+	$themes['pnc_register'] = array(
+	    //'variables' => $vars,
+	    'template' => 'block--pnc-register',
+	    'path' => drupal_get_path('module', 'pnc_register'),
+	  );
+
+	return $themes;
+}

@@ -1,0 +1,76 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ *  Gets the standard Drupal contact form and adds it to a block.
+ *
+ */
+
+
+function pnccontact_block_info() {
+$blocks = array();
+
+$blocks['purencool_contact'] = array(
+    'info' => t('Purencool contact block'),
+    'cache' => DRUPAL_NO_CACHE
+    );
+ return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function pnccontact_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'purencool_contact':
+      $block = array(
+        'subject' => t('contact form'),
+        'content' => _purencool_contact_get_contact_form(),
+      );
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Request the site form and add a div wrapper called purencool-contact
+ * @return array
+ */
+function _pnccontact_get_contact_form() {
+  form_load_include($form_state, 'inc', 'contact', 'contact.pages');
+  $form = drupal_get_form('contact_site_form');
+  $output = drupal_render($form);
+
+  return $output;
+}
+
+/**
+ * Implements hook_form_comment_for_alter for comments template
+ */
+function pnccontact_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == "contact_site_form") {
+     // Name
+     $form['name']['#title'] = "";
+     $form['name']['#default_value'] = t("Name*:");
+
+     // Mail
+     $form['mail']['#title'] = "";
+     $form['mail']['#default_value'] = t("Email*:");
+
+     // Subject
+    $form['subject']['#default_value'] = t("Business/Company*:");
+    $form['subject']['#title'] = "";
+
+    // Message
+    $form['message']['#title']="";
+    $form['message']['#default_value'] = t("Message");
+
+    // Submit
+     $form['actions']['submit']['#value'] = t('Send');
+  }
+  // Tests without using dpm
+  //print_r($form);
+}

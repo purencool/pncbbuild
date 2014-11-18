@@ -1,0 +1,5 @@
+name = Purencool Registration Block
+description = User Registration Block
+version = 1.0
+package = Purencool
+core = 7.x
