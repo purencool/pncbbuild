@@ -26,7 +26,7 @@ function pncregister_block_view($delta = '') {
     //-- if user is logged in it will not show
     if(!user_is_logged_in()){
       $block['subject'] = t('Register form');
-      $block['content'] = theme('pnc_register', _pnc_register_content());
+      $block['content'] = theme('pnc_register', _pncregister_content());
     }
     break;
   }
