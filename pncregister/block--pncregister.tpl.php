@@ -10,9 +10,9 @@
     <?php //print drupal_render_children($content); ?>
      <form class="user-info-from-cookie" enctype="multipart/form-data" action="/" method="post" id="user-register-form" accept-charset="UTF-8">
        <?php  print drupal_render($content['account']['name']); ?>
-       <?php print drupal_render($content['field_last_name']); ?>
+       <?php  print drupal_render($content['field_last_name']); ?>
        <?php  print drupal_render($content['account']['mail']); ?>
-       <?php print drupal_render($content['field_contact_phone']); ?>
+       <?php  print drupal_render($content['field_contact_phone']); ?>
        <?php  print drupal_render($content['form_build_id']); ?>
        <?php  print drupal_render($content['form_id']); ?>
        <?php  print drupal_render($content['actions']); ?>
