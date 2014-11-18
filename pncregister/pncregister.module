@@ -11,7 +11,7 @@
 function pncregister_block_info() {
   $blocks = array();
   $blocks['pnc_register'] = array(
-    'info' => t('User Registration Block'),
+    'info' => t('Purencool registration'),
   );
   return $blocks;
 }

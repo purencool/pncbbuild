@@ -12,7 +12,7 @@ function pnccontact_block_info() {
 $blocks = array();
 
 $blocks['purencool_contact'] = array(
-    'info' => t('Purencool contact block'),
+    'info' => t('Purencool contact'),
     'cache' => DRUPAL_NO_CACHE
     );
  return $blocks;
@@ -28,7 +28,7 @@ function pnccontact_block_view($delta = '') {
     case 'purencool_contact':
       $block = array(
         'subject' => t('contact form'),
-        'content' => _purencool_contact_get_contact_form(),
+        'content' => _pnccontact_get_contact_form(),
       );
       break;
   }
