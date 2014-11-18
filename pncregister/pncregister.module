@@ -25,7 +25,7 @@ function pncregister_block_view($delta = '') {
   case 'pncregister':
     //-- if user is logged in it will not show
     if(!user_is_logged_in()){
-      $block['subject'] = t('Purencool registation form');
+      $block['subject'] = '';
       $block['content'] = theme('pncregister', _pncregister_content());
     }
     break;
@@ -39,7 +39,7 @@ function _pncregister_content() {
      'block' => array(),
      'block_html_id' => 'pnc-register',
      'content' => drupal_get_form('user_register_form'),
-     'subject' => 'Purencool registation form'
+     'subject' => ''
    );
    return $return;
 }
