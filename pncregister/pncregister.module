@@ -50,7 +50,7 @@ function _pncregister_content() {
 function pncregister_theme() {
 	$themes['pnc_register'] = array(
 	    //'variables' => $vars,
-	    'template' => 'block--pnc-register',
+	    'template' => 'block--pncregister',
 	    'path' => drupal_get_path('module', 'pnc_register'),
 	  );
 

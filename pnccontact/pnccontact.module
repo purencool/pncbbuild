@@ -12,7 +12,7 @@ function pnccontact_block_info() {
 $blocks = array();
 
 $blocks['purencool_contact'] = array(
-    'info' => t('Purencool contact'),
+    'info' => t('Purencool Contact'),
     'cache' => DRUPAL_NO_CACHE
     );
  return $blocks;
@@ -54,14 +54,14 @@ function pnccontact_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == "contact_site_form") {
      // Name
      $form['name']['#title'] = "";
-     $form['name']['#default_value'] = t("Name*:");
+     $form['name']['#default_value'] = t("Name*");
 
      // Mail
      $form['mail']['#title'] = "";
-     $form['mail']['#default_value'] = t("Email*:");
+     $form['mail']['#default_value'] = t("Email*");
 
      // Subject
-    $form['subject']['#default_value'] = t("Business/Company*:");
+    $form['subject']['#default_value'] = t("Business/Company*");
     $form['subject']['#title'] = "";
 
     // Message
