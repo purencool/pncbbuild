@@ -10,7 +10,7 @@
  */
 function pncregister_block_info() {
   $blocks = array();
-  $blocks['pnc_register'] = array(
+  $blocks['pncregister'] = array(
     'info' => t('Purencool registration'),
   );
   return $blocks;
@@ -22,11 +22,11 @@ function pncregister_block_info() {
 function pncregister_block_view($delta = '') {
   $block ='';
   switch ($delta) {
-  case 'pnc_register':
+  case 'pncregister':
     //-- if user is logged in it will not show
     if(!user_is_logged_in()){
-      $block['subject'] = t('Register form');
-      $block['content'] = theme('pnc_register', _pncregister_content());
+      $block['subject'] = t('Purencool registation form');
+      $block['content'] = theme('pncregister', _pncregister_content());
     }
     break;
   }
@@ -39,7 +39,7 @@ function _pncregister_content() {
      'block' => array(),
      'block_html_id' => 'pnc-register',
      'content' => drupal_get_form('user_register_form'),
-     'subject' => 'PNC Register'
+     'subject' => 'Purencool registation form'
    );
    return $return;
 }
