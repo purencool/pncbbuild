@@ -21,8 +21,7 @@ if($editor_existance == ''){
 
   // Define our 'editor' role permissions
   $perms = array(
-    'administer blocks' => TRUE, // Grant permission
-    'access dashboard' => FALSE, // Revoke permission
+    'access_content'
   );
 
    //-- Grant the permissions.
