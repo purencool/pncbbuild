@@ -7,6 +7,7 @@
  *
  */
  // Determine the roles of our new user
+ $editor_role = user_role_load_by_name('editor');
  $new_user_roles = array(
    DRUPAL_AUTHENTICATED_RID => 'authenticated user',
    $editor_rid => TRUE,
