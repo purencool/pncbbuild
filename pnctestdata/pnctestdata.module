@@ -1,0 +1,22 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Adds test data to build.
+ *
+ */
+ // Determine the roles of our new user
+ $new_user_roles = array(
+   DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+   $editor_rid => TRUE,
+ );
+ // Create a new user
+ $new_user = new stdClass();
+ $new_user->name = 'john';
+ $new_user->pass = 'q'; // plain text, hashed later
+ $new_user->mail = 'john@doe.com';
+ $new_user->roles = $new_user_roles;
+ $new_user->status = 1; // omit this line to block this user at creation
+ //$new_user->is_new = TRUE; // not necessary because we already omit $new_user->uid
+ user_save($new_user);

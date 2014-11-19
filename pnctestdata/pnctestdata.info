@@ -1,0 +1,5 @@
+name = Purencool test data
+description = Creates test data for this build
+version = 1.0
+package = Purencool
+core = 7.x

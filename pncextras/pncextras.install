@@ -18,9 +18,11 @@ if($editor_existance == ''){
   user_role_save($editor_role);
   $editor_id = $editor_role->rid;
 
-  //-- Permissions to assign to the role.
+
+  // Define our 'editor' role permissions
   $perms = array(
-    'access content',
+    'administer blocks' => TRUE, // Grant permission
+    'access dashboard' => FALSE, // Revoke permission
   );
 
    //-- Grant the permissions.
@@ -43,4 +45,14 @@ db_update('block')
 ))
 ->condition('theme','pncmbtheme', '=')
 ->condition('delta', 'powered-by', '=')
+->execute();
+
+//-- Move search
+db_update('block')
+->fields(array(
+  'region' => 'header',
+))
+->condition('theme', 'pncmbtheme', '=')
+->condition('delta', 'powered-by', '=')
+->condition('search', 'form', '=')
 ->execute();
