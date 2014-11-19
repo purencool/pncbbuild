@@ -27,11 +27,10 @@ function pncuserlogin_block_view($delta = ''){
     case "pnc_user_login":
       $block['subject'] = t("");
       if(!user_is_logged_in()){
-        $loginForm =  drupal_get_form('user_login');
+        $block['content'] = drupal_render( drupal_get_form('user_login') );
       } else {
-        $loginForm = 'You are logged in';
+        $block['content'] = 'You are logged in';
       }
-      $block['content'] = drupal_render($loginForm);
   }
   return $block;
 }
