@@ -52,6 +52,6 @@ db_update('block')
   'region' => 'header',
 ))
 ->condition('theme', 'pncmbtheme', '=')
-->condition('delta', 'powered-by', '=')
+->condition('delta', 'form', '=')
 ->condition('module', 'search', '=')
 ->execute();
