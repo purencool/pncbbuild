@@ -21,7 +21,7 @@ if($editor_existance == ''){
 
   // Define our 'editor' role permissions
   $perms = array(
-    'access_content'
+    'access content'
   );
 
    //-- Grant the permissions.
