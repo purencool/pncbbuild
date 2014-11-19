@@ -24,9 +24,9 @@ function pncuserlogin_block_view($delta = ''){
   $block = array();
 
   switch($delta) {
-    case "pnc_user_login":    
+    case "pnc_user_login":
       $block['subject'] = t("");
-      if(user_is_logged_in()){
+      if(!user_is_logged_in()){
         $loginForm =  drupal_get_form('user_login');
       } else {
         $loginForm = 'You are logged in';
