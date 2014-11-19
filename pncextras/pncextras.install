@@ -30,7 +30,7 @@ if($editor_existance == ''){
 
 $num_updated = db_update('block')
 ->fields(array(
-  'status' => 1,
+  'status' => 0,
 ))
 ->condition('theme','pncmbtheme', '=')
 ->condition('delta', 'login', '=')
