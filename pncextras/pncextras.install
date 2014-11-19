@@ -26,3 +26,16 @@ if($editor_existance == ''){
    // Grant the permissions.
    user_role_grant_permissions($editor_id, $perms);
 }
+
+
+$num_updated = db_update('block')
+->fields(array(
+  'status' => 1,
+))
+->condition('theme','pncmbtheme', '=')
+->condition('delta', 'login', '=')
+->execute();
+
+
+//UPDATE {node} SET uid=5, status=1 WHERE created >= 1221717405;
+//SELECT `delta`,`theme`,`status` FROM `block` WHERE `theme` = 'pncmbtheme'
