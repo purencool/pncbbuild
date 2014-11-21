@@ -56,6 +56,7 @@ function pncextras_install() {
   //-- Move menu block to the navigation
   db_update('block')
   ->fields(array(
+    'status' => 1,
     'region' => 'navigation',
   ))
   ->condition('theme', 'pncmbtheme', '=')
