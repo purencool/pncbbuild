@@ -139,14 +139,14 @@ function pncextras_install() {
 
   $node->title    = 'about';
   $node->language = LANGUAGE_NONE;
-  $node->path = array('alias' =>  'content/about';);
-  $node->menu = array(
-    'link_title' => $node->title,
-    'menu_name' => 'main-menu',
-    'plid' => 0,
-    'enabled' => 1,
-  );
+
+
+  
   $node->body[$node->language][0]['value']   = $body_text;
   $node->body[$node->language][0]['format']  = 'full_html';
+
+  $path = 'content/about';
+  $node->path = array('alias' => $path);
+
   node_save($node);
 }
