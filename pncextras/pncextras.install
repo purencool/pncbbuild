@@ -3,6 +3,10 @@
  * @file
  * Added extra to standard drupal build.
  */
+/**
+ * Implements hook_install().
+ */
+function pncextras_install() {
 
 //-- Does role exit
 $editor_existance = db_query('
@@ -151,3 +155,4 @@ $path = 'content/about';
 $node->path = array('alias' => $path);
 
 node_save($node);
+}
