@@ -98,6 +98,7 @@ function pncextras_install() {
   </p>
   <br/>
   <br/>
+  <h6> This is a ul list </h6>
   <ul>
     <li>Testing ul </li>
     <li>
@@ -108,6 +109,7 @@ function pncextras_install() {
   </ul>
   <br/>
   <br/>
+  <h6> This is a ol list </h6>
   <ol>
     <li>Testing ul </li>
     <li>
@@ -118,6 +120,7 @@ function pncextras_install() {
   </ol>
   <br/>
   <br/>
+  <h6> This is a dl </h6>
   <dl>
     <dt>Coffee</dt>
     <dd>
@@ -130,15 +133,17 @@ function pncextras_install() {
   </dl>
   <br/>
   <br/>
+  <h6> This is a blockquote</h6>
   <blockquote cite="http://www.purencool.com/index.html">
     For 50 years, WWF has been protecting the future of nature.
     The world\'s leading conservation organization,
     WWF works in 100 countries and is supported by 1.2 million
     members in the United States and close to 5 million globally.
   </blockquote>
+  <br/>
+  <br/>
+  <h6> This is a a wrapped in a link div </h6>
   <div>
-  <br/>
-  <br/>
     <a href="">I am test link and I am currently wrapped in a div</a>
   </div>';
 
@@ -151,8 +156,8 @@ function pncextras_install() {
 
 
   $node->menu['enabled'] = 1;       // 1 to enable providing a link in main menu
-  $node->menu['link_title'] = 'Your page link title';
-  $node->menu['description'] = 'Your page description';
+  $node->menu['link_title'] = 'About';
+  $node->menu['description'] = 'What is this website about page';
   $node->menu['parent'] = 'main-menu:0';
   $node->menu['weight'] = 5;
 
