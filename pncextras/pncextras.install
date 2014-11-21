@@ -53,7 +53,14 @@ function pncextras_install() {
   ->condition('module', 'search', '=')
   ->execute();
 
-
+  //-- Move menu block to the navigation
+  db_update('block')
+  ->fields(array(
+    'region' => 'navigation',
+  ))
+  ->condition('theme', 'pncmbtheme', '=')
+  ->condition('delta', 'main-menu', '=')
+  ->execute();
 
   //-- Install basic node for theming text
   $body_text = '
@@ -141,7 +148,7 @@ function pncextras_install() {
   $node->language = LANGUAGE_NONE;
 
 
-  
+
   $node->body[$node->language][0]['value']   = $body_text;
   $node->body[$node->language][0]['format']  = 'full_html';
 
