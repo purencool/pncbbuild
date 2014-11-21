@@ -58,6 +58,7 @@ function pncextras_install() {
   ->fields(array(
     'status' => 1,
     'region' => 'navigation',
+    'title' => '<none>',
   ))
   ->condition('theme', 'pncmbtheme', '=')
   ->condition('delta', 'main-menu', '=')
