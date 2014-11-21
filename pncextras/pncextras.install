@@ -8,151 +8,143 @@
  */
 function pncextras_install() {
 
-//-- Does role exit
-$editor_existance = db_query('
-  SELECT rid  FROM role WHERE name = :name',
-  array(':name' => 'editor'))->fetchField();
-
-//--extra roll called editor.
-if($editor_existance == ''){
-
+  //-- Added an extra roll called editor.
   $editor_role = new stdClass();
   $editor_role->name = 'editor';
   $editor_role->weight = 3;
   user_role_save($editor_role);
   $editor_id = $editor_role->rid;
 
-
-  // Define our 'editor' role permissions
+  //-- Define our editor role permissions
   $perms = array(
     'access content'
   );
 
-   //-- Grant the permissions.
-   user_role_grant_permissions($editor_id, $perms);
-}
-
-//-- Uninstall blocks that are not needed
-db_update('block')
-->fields(array(
-  'status' => 0,
-))
-->condition('theme','pncmbtheme', '=')
-->condition('delta', 'login', '=')
-->execute();
+  //-- Grant the permissions.
+  user_role_grant_permissions($editor_id, $perms);
 
 
-db_update('block')
-->fields(array(
-  'status' => 0,
-))
-->condition('theme','pncmbtheme', '=')
-->condition('delta', 'powered-by', '=')
-->execute();
 
-//-- Move search
-db_update('block')
-->fields(array(
-  'region' => 'header',
-))
-->condition('theme', 'pncmbtheme', '=')
-->condition('delta', 'form', '=')
-->condition('module', 'search', '=')
-->execute();
+  //-- Disable login block
+  db_update('block')
+  ->fields(array(
+    'status' => 0,
+  ))
+  ->condition('theme','pncmbtheme', '=')
+  ->condition('delta', 'login', '=')
+  ->execute();
+
+  //-- Disable power-by block
+  db_update('block')
+  ->fields(array(
+    'status' => 0,
+  ))
+  ->condition('theme','pncmbtheme', '=')
+  ->condition('delta', 'powered-by', '=')
+  ->execute();
+
+  //-- Move search block to the header
+  db_update('block')
+  ->fields(array(
+    'region' => 'header',
+  ))
+  ->condition('theme', 'pncmbtheme', '=')
+  ->condition('delta', 'form', '=')
+  ->condition('module', 'search', '=')
+  ->execute();
 
 
-/**
-* Basic Node Creation Example for Drupal 7
-*
-* Standard Drupal 7 installation
-*/
-$body_text = '
-<h1> This is a h1 </h1>
-<h2> This is a h2 </h2>
-<h3> This is a h3 </h3>
-<h4> This is a h4 </h4>
-<h5> This is a h5 </h5>
-<h6> This is a h6 </h6>
-<br/>
-<br/>
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Maecenas ut arcu scelerisque, efficitur massa sit amet, luctus massa.
-  Fusce interdum finibus sem, facilisis dapibus orci. Proin vehicula, mauris
-  id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed
-  sapien. Nam et enim a erat accumsan iaculis vitae eget metus. Nulla dui justo,
-  tristique sit amet lacinia a, ornare vel enim. Vestibulum dictum neque dolor,
-  a viverra augue lobortis non. Vestibulum nibh elit, dapibus mollis aliquet sit amet,
-  tempor non felis. Mauris eu est sem.
-</p>
-<br/>
-<br/>
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Maecenas ut arcu scelerisque, efficitur massa sit amet, luctus massa.
-  Fusce interdum finibus sem, facilisis dapibus orci. Proin vehicula, mauris
-  id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed
-  sapien. Nam et enim a erat accumsan iaculis vitae eget metus. Nulla dui justo,
-  tristique sit amet lacinia a, ornare vel enim. Vestibulum dictum neque dolor,
-  a viverra augue lobortis non. Vestibulum nibh elit, dapibus mollis aliquet sit amet,
-  tempor non felis. Mauris eu est sem.
-</p>
-<br/>
-<br/>
-<ul>
-  <li>Testing ul </li>
-  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
-    efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
-    Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
+
+  //-- Install basic node for theming text
+  $body_text = '
+  <h1> This is a h1 </h1>
+  <h2> This is a h2 </h2>
+  <h3> This is a h3 </h3>
+  <h4> This is a h4 </h4>
+  <h5> This is a h5 </h5>
+  <h6> This is a h6 </h6>
+  <br/>
+  <br/>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Maecenas ut arcu scelerisque, efficitur massa sit amet, luctus massa.
+    Fusce interdum finibus sem, facilisis dapibus orci. Proin vehicula, mauris
+    id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed
+    sapien. Nam et enim a erat accumsan iaculis vitae eget metus. Nulla dui justo,
+    tristique sit amet lacinia a, ornare vel enim. Vestibulum dictum neque dolor,
+    a viverra augue lobortis non. Vestibulum nibh elit, dapibus mollis aliquet sit amet,
+    tempor non felis. Mauris eu est sem.
+  </p>
+  <br/>
+  <br/>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Maecenas ut arcu scelerisque, efficitur massa sit amet, luctus massa.
+    Fusce interdum finibus sem, facilisis dapibus orci. Proin vehicula, mauris
+    id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed
+    sapien. Nam et enim a erat accumsan iaculis vitae eget metus. Nulla dui justo,
+    tristique sit amet lacinia a, ornare vel enim. Vestibulum dictum neque dolor,
+    a viverra augue lobortis non. Vestibulum nibh elit, dapibus mollis aliquet sit amet,
+    tempor non felis. Mauris eu est sem.
+  </p>
+  <br/>
+  <br/>
+  <ul>
+    <li>Testing ul </li>
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
+       efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
+       Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
     </li>
-</ul>
-<br/>
-<br/>
-<ol>
-  <li>Testing ul </li>
-  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
-    efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
-     Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
-  </li>
-</ol>
-<br/>
-<br/>
-<dl>
-  <dt>Coffee</dt>
-  <dd>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
-    efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
-    Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
-  </dd>
-   <dt>Milk</dt>
-  <dd>No thanks</dd>
-</dl>
-<br/>
-<br/>
-<blockquote cite="http://www.purencool.com/index.html">
-  For 50 years, WWF has been protecting the future of nature.
-  The world\'s leading conservation organization,
-  WWF works in 100 countries and is supported by 1.2 million
-  members in the United States and close to 5 million globally.
-</blockquote>
-<div>
-<br/>
-<br/>
-<a href="">I am test link and I am currently wrapped in a div</a>
-</div>';
+  </ul>
+  <br/>
+  <br/>
+  <ol>
+    <li>Testing ul </li>
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
+      efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
+       Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
+    </li>
+  </ol>
+  <br/>
+  <br/>
+  <dl>
+    <dt>Coffee</dt>
+    <dd>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
+      efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
+      Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
+    </dd>
+    <dt>Milk</dt>
+    <dd>No thanks</dd>
+  </dl>
+  <br/>
+  <br/>
+  <blockquote cite="http://www.purencool.com/index.html">
+    For 50 years, WWF has been protecting the future of nature.
+    The world\'s leading conservation organization,
+    WWF works in 100 countries and is supported by 1.2 million
+    members in the United States and close to 5 million globally.
+  </blockquote>
+  <div>
+  <br/>
+  <br/>
+    <a href="">I am test link and I am currently wrapped in a div</a>
+  </div>';
 
-$node = new stdClass();
-$node->type = 'page';
-node_object_prepare($node);
+  $node = new stdClass();
+  $node->type = 'page';
+  node_object_prepare($node);
 
-$node->title    = 'about';
-$node->language = LANGUAGE_NONE;
+  $node->title    = 'about';
+  $node->language = LANGUAGE_NONE;
 
-$node->body[$node->language][0]['value']   = $body_text;
-$node->body[$node->language][0]['format']  = 'full_html';
+  $node->body[$node->language][0]['value']   = $body_text;
+  $node->body[$node->language][0]['format']  = 'full_html';
 
-$path = 'content/about';
-$node->path = array('alias' => $path);
+  $path = 'content/about';
+  $node->path = array('alias' => $path);
 
-node_save($node);
+  node_save($node);
 }
