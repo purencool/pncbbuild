@@ -73,7 +73,6 @@ function pncextras_install() {
   <h5> This is a h5 </h5>
   <h6> This is a h6 </h6>
   <br/>
-  <br/>
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Maecenas ut arcu scelerisque, efficitur massa sit amet, luctus massa.
@@ -84,8 +83,6 @@ function pncextras_install() {
     a viverra augue lobortis non. Vestibulum nibh elit, dapibus mollis aliquet sit amet,
     tempor non felis. Mauris eu est sem.
   </p>
-  <br/>
-  <br/>
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Maecenas ut arcu scelerisque, efficitur massa sit amet, luctus massa.
@@ -96,8 +93,6 @@ function pncextras_install() {
     a viverra augue lobortis non. Vestibulum nibh elit, dapibus mollis aliquet sit amet,
     tempor non felis. Mauris eu est sem.
   </p>
-  <br/>
-  <br/>
   <h6> This is a ul list </h6>
   <ul>
     <li>Testing ul </li>
@@ -107,8 +102,6 @@ function pncextras_install() {
        Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
     </li>
   </ul>
-  <br/>
-  <br/>
   <h6> This is a ol list </h6>
   <ol>
     <li>Testing ul </li>
@@ -118,8 +111,6 @@ function pncextras_install() {
        Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
     </li>
   </ol>
-  <br/>
-  <br/>
   <h6> This is a dl </h6>
   <dl>
     <dt>Coffee</dt>
@@ -131,8 +122,6 @@ function pncextras_install() {
     <dt>Milk</dt>
     <dd>No thanks</dd>
   </dl>
-  <br/>
-  <br/>
   <h6> This is a blockquote</h6>
   <blockquote cite="http://www.purencool.com/index.html">
     For 50 years, WWF has been protecting the future of nature.
@@ -140,8 +129,6 @@ function pncextras_install() {
     WWF works in 100 countries and is supported by 1.2 million
     members in the United States and close to 5 million globally.
   </blockquote>
-  <br/>
-  <br/>
   <h6> This is a a wrapped in a link div </h6>
   <div>
     <a href="">I am test link and I am currently wrapped in a div</a>
@@ -152,11 +139,8 @@ function pncextras_install() {
   node_object_prepare($node);
   //$customNode->uid = $user->uid; yet to be tested
   //$customNode->name = $user->name; yet to be tested
-
   $node->title    = 'about';
   $node->language = LANGUAGE_NONE;
-
-
   $node->menu['enabled'] = 1;       // 1 to enable providing a link in main menu
   $node->menu['link_title'] = 'About';
   $node->menu['description'] = 'What is this website about page';
