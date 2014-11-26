@@ -15,6 +15,7 @@ function pnccopyright_install() {
     'title' => '<none>',
   ))
   ->condition('theme', 'pncmbtheme', '=')
+  ->condition('module', 'pnccopyright', '=')
   ->execute();
 }
 
