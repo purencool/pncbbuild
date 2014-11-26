@@ -6,7 +6,7 @@
 /**
  * Implements hook_install().
  */
-function pnccopyright_install() {
+function pnccopyright_update_7001() {
   //-- Making sure block does not have a block title
   db_update('block')
   ->fields(array(
