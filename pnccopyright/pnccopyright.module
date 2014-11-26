@@ -1,0 +1,36 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Adds a generic block to the build with content of the users choice.
+ *
+ */
+
+
+function pnccopyright_block_info() {
+$blocks = array();
+
+$blocks['purencool_copyright'] = array(
+    'info' => t('Purencool Copyright'),
+    'cache' => DRUPAL_NO_CACHE
+    );
+ return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function pnccopyright_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'purencool_copyright':
+      $block = array(
+        'subject' => t('Copyright'),
+        'content' => "&copy;  ". date("Y") ."  purencool website development",
+      );
+      break;
+  }
+  return $block;
+}

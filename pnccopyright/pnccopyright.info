@@ -1,0 +1,5 @@
+name = Purencool copyright
+description = Creates copyright text to display in footer
+version = 1.0
+package = Purencool
+core = 7.x
