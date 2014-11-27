@@ -171,7 +171,7 @@ function pncextras_install() {
   if (module_exists('mobile_navigation')) {
     variable_set('mobile_navigation_menuselector', 'nav ul');
     variable_set('mobile_navigation_plugin', 'slideMenu');
-    variable_set('mobile_navigation_showEffect', 'draw_left');
+    variable_set('mobile_navigation_showEffect', 'fixed_left');
   }
 
 
