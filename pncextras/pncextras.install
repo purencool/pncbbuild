@@ -161,7 +161,12 @@ function pncextras_install() {
   node_submit($node);
   node_save($node);
 
-  
+
+  //-- Set mobile menu
+  if (module_exists('module_filter')) {
+    variable_set('module_filter_use_switch', '0');
+  }
+
   //-- Set mobile menu
   if (module_exists('mobile_navigation')) {
     variable_set('mobile_navigation_menuselector', 'nav ul');
