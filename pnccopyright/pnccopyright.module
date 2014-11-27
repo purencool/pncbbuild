@@ -28,7 +28,11 @@ function pnccopyright_block_view($delta = '') {
     case 'purencool_copyright':
       $block = array(
         'subject' => t('Copyright'),
-        'content' => "&copy;  ". date("Y") ."  purencool website development",
+        'content' => "
+         <div class='copy-right'>
+           <p class='copy-by'> &copy;  ". date("Y") ."  purencool website development all rights reserved</p>
+           <p class='design-by'><a href='http://www.purencool.com.au'>Design</a></p>
+         </div>",
       );
       break;
   }
