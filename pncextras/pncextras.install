@@ -178,6 +178,7 @@ function pncextras_install() {
     variable_set('mobile_navigation_tabhandler', '0');
     variable_set('mobile_navigation_useMask', '0');
   }
-
+  
+  drupal_flush_all_caches();
 
 }
