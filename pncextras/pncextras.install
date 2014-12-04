@@ -169,7 +169,7 @@ function pncextras_install() {
 
   //-- Set mobile menu
   if (module_exists('mobile_navigation')) {
-    variable_set('mobile_navigation_menuselector', 'nav ul');
+    variable_set('mobile_navigation_menuselector', '.navigation-region nav ul');
     variable_set('mobile_navigation_plugin', 'slideMenu');
     variable_set('mobile_navigation_showEffect', 'fixed_left');
     variable_set('mobile_navigation_showitems', 'all');
@@ -178,7 +178,7 @@ function pncextras_install() {
     variable_set('mobile_navigation_tabhandler', '0');
     variable_set('mobile_navigation_useMask', '0');
   }
-  
+
   drupal_flush_all_caches();
 
 }
