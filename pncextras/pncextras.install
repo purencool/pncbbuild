@@ -172,6 +172,11 @@ function pncextras_install() {
     variable_set('mobile_navigation_menuselector', 'nav ul');
     variable_set('mobile_navigation_plugin', 'slideMenu');
     variable_set('mobile_navigation_showEffect', 'fixed_left');
+    variable_set('mobile_navigation_showitems', 'all');
+    variable_set('mobile_navigation_special_classes', 'mobile-nav');
+    variable_set('mobile_navigation_width', '0');
+    variable_set('mobile_navigation_tabhandler', '0');
+    variable_set('mobile_navigation_useMask', '0');
   }
 
 
