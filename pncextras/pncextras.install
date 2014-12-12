@@ -147,6 +147,8 @@ function pncextras_install() {
   ->condition('delta', 'main-menu', '=')
   ->execute();
 
+
+/*
   //-- Page 404 error page
   $node404 = new stdClass();
   $node404->type = 'page';
@@ -163,15 +165,13 @@ function pncextras_install() {
   $customNode404->path['alias'] = 'page404';
   node_submit($node404);
   node_save($node404);
+*/
 
 
-
-
+  //-- About page
   $node = new stdClass();
   $node->type = 'page';
   node_object_prepare($node);
-  //$node->uid = $user->uid; //yet to be tested
-  //$node->name = $user->name; //yet to be tested
   $node->title    = 'about';
   $node->language = LANGUAGE_NONE;
   $node->menu['enabled'] = 1;       // 1 to enable providing a link in main menu
@@ -187,9 +187,6 @@ function pncextras_install() {
   $node->promote = 0;
   $node->revision = 0;
   $customNode->path['alias'] = 'content/about';
-
-  //$path = 'content/about';
-  //$node->path = array('alias' => $path);
   node_submit($node);
   node_save($node);
 
