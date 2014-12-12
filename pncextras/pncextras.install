@@ -77,12 +77,12 @@
 
 
 function node404(){
-  return '<div class="404 page-error">This is 404</div>';
+  return '<div class="not-found page-error">Sorry page not found</div>';
 }
 
 
 function node403(){
-  return '<div class="403  page-error">This is 403</div>';
+  return '<div class="access-denied  page-error">You don\'t have access to this page</div>';
 }
 
 
