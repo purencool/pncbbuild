@@ -6,6 +6,79 @@
 /**
  * Implements hook_install().
  */
+function testArticle(){
+
+  return '<h1> This is a h1 </h1>
+  <h2> This is a h2 </h2>
+  <h3> This is a h3 </h3>
+  <h4> This is a h4 </h4>
+  <h5> This is a h5 </h5>
+  <h6> This is a h6 </h6>
+  <br/>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Maecenas ut arcu scelerisque, efficitur massa sit amet, luctus massa.
+  Fusce interdum finibus sem, facilisis dapibus orci. Proin vehicula, mauris
+  id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed
+  sapien. Nam et enim a erat accumsan iaculis vitae eget metus. Nulla dui justo,
+  tristique sit amet lacinia a, ornare vel enim. Vestibulum dictum neque dolor,
+  a viverra augue lobortis non. Vestibulum nibh elit, dapibus mollis aliquet sit amet,
+  tempor non felis. Mauris eu est sem.
+  </p>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Maecenas ut arcu scelerisque, efficitur massa sit amet, luctus massa.
+  Fusce interdum finibus sem, facilisis dapibus orci. Proin vehicula, mauris
+  id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed
+  sapien. Nam et enim a erat accumsan iaculis vitae eget metus. Nulla dui justo,
+  tristique sit amet lacinia a, ornare vel enim. Vestibulum dictum neque dolor,
+  a viverra augue lobortis non. Vestibulum nibh elit, dapibus mollis aliquet sit amet,
+  tempor non felis. Mauris eu est sem.
+  </p>
+  <h6> This is a ul list </h6>
+  <ul>
+  <li>Testing ul </li>
+  <li>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
+  efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
+  Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
+  </li>
+  </ul>
+  <h6> This is a ol list </h6>
+  <ol>
+  <li>Testing ul </li>
+  <li>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
+  efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
+  Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
+  </li>
+  </ol>
+  <h6> This is a dl </h6>
+  <dl>
+  <dt>Coffee</dt>
+  <dd>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
+    efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
+    Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
+  </dd>
+    <dt>Milk</dt>
+    <dd>No thanks</dd>
+  </dl>
+  <h6> This is a blockquote</h6>
+  <blockquote cite="http://www.purencool.com/index.html">
+    For 50 years, WWF has been protecting the future of nature.
+    The world\'s leading conservation organization,
+    WWF works in 100 countries and is supported by 1.2 million
+    members in the United States and close to 5 million globally.
+  </blockquote>
+  <h6> This is a a wrapped in a link div </h6>
+  <div>
+    <a href="">I am test link and I am currently wrapped in a div</a>
+  </div>';
+}
+
+
+
 function pncextras_install() {
 
   //-- Added an extra roll called editor.
@@ -64,75 +137,7 @@ function pncextras_install() {
   ->condition('delta', 'main-menu', '=')
   ->execute();
 
-  //-- Install basic node for theming text
-  $body_text = '
-  <h1> This is a h1 </h1>
-  <h2> This is a h2 </h2>
-  <h3> This is a h3 </h3>
-  <h4> This is a h4 </h4>
-  <h5> This is a h5 </h5>
-  <h6> This is a h6 </h6>
-  <br/>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Maecenas ut arcu scelerisque, efficitur massa sit amet, luctus massa.
-    Fusce interdum finibus sem, facilisis dapibus orci. Proin vehicula, mauris
-    id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed
-    sapien. Nam et enim a erat accumsan iaculis vitae eget metus. Nulla dui justo,
-    tristique sit amet lacinia a, ornare vel enim. Vestibulum dictum neque dolor,
-    a viverra augue lobortis non. Vestibulum nibh elit, dapibus mollis aliquet sit amet,
-    tempor non felis. Mauris eu est sem.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Maecenas ut arcu scelerisque, efficitur massa sit amet, luctus massa.
-    Fusce interdum finibus sem, facilisis dapibus orci. Proin vehicula, mauris
-    id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed
-    sapien. Nam et enim a erat accumsan iaculis vitae eget metus. Nulla dui justo,
-    tristique sit amet lacinia a, ornare vel enim. Vestibulum dictum neque dolor,
-    a viverra augue lobortis non. Vestibulum nibh elit, dapibus mollis aliquet sit amet,
-    tempor non felis. Mauris eu est sem.
-  </p>
-  <h6> This is a ul list </h6>
-  <ul>
-    <li>Testing ul </li>
-    <li>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
-       efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
-       Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
-    </li>
-  </ul>
-  <h6> This is a ol list </h6>
-  <ol>
-    <li>Testing ul </li>
-    <li>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
-      efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
-       Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
-    </li>
-  </ol>
-  <h6> This is a dl </h6>
-  <dl>
-    <dt>Coffee</dt>
-    <dd>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut arcu scelerisque,
-      efficitur massa sit amet, luctus massa. Fusce interdum finibus sem, facilisis dapibus orci.
-      Proin vehicula, mauris id varius eleifend, ante tortor vestibulum lorem, et ultrices dui nisi sed sapien.
-    </dd>
-    <dt>Milk</dt>
-    <dd>No thanks</dd>
-  </dl>
-  <h6> This is a blockquote</h6>
-  <blockquote cite="http://www.purencool.com/index.html">
-    For 50 years, WWF has been protecting the future of nature.
-    The world\'s leading conservation organization,
-    WWF works in 100 countries and is supported by 1.2 million
-    members in the United States and close to 5 million globally.
-  </blockquote>
-  <h6> This is a a wrapped in a link div </h6>
-  <div>
-    <a href="">I am test link and I am currently wrapped in a div</a>
-  </div>';
+
 
   $node = new stdClass();
   $node->type = 'page';
@@ -146,7 +151,7 @@ function pncextras_install() {
   $node->menu['description'] = 'What is this website about page';
   $node->menu['parent'] = 'main-menu:0';
   $node->menu['weight'] = 5;
-  $node->body[$node->language][0]['value']   = $body_text;
+  $node->body[$node->language][0]['value']   = testArticle();
   $node->body[$node->language][0]['format']  = 'full_html';
   $node->changed = $_SERVER['REQUEST_TIME']; //yet to be tested
   $node->created = $_SERVER['REQUEST_TIME']; //yet to be tested
@@ -157,7 +162,6 @@ function pncextras_install() {
 
   //$path = 'content/about';
   //$node->path = array('alias' => $path);
-
   node_submit($node);
   node_save($node);
 

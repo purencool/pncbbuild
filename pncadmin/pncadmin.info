@@ -1,0 +1,5 @@
+name = Purencool Admin CSS
+description = Allows developer to override on admin theme if needed
+version = 1.0
+package = Purencool
+core = 7.x
