@@ -74,13 +74,13 @@
  </div>';
 }
 
-/*
+
 
 function node404(){
   return '<div class="404 page-error">This is 404</div>';
 }
 
-
+/*
 function node403(){
   return '<div class="403  page-error">This is 403</div>';
 }
