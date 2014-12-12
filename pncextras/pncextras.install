@@ -80,11 +80,11 @@ function node404(){
   return '<div class="404 page-error">This is 404</div>';
 }
 
-/*
+
 function node403(){
   return '<div class="403  page-error">This is 403</div>';
 }
-*/
+
 
 /**
  * Implements hook_install().
@@ -149,12 +149,34 @@ function pncextras_install() {
 
 
 
+
+  //-- Page 403 error page
+  $node403 = new stdClass();
+  $node403->type = 'page';
+  node_object_prepare($node404);
+
+  $node403->title    = 'Access denied';
+  $node403->language = LANGUAGE_NONE;
+  $node403->body[$node403->language][0]['value']   = node403();
+  $node403->body[$node403->language][0]['format']  = 'full_html';
+  $node403->changed = $_SERVER['REQUEST_TIME']; //yet to be tested
+  $node403->created = $_SERVER['REQUEST_TIME']; //yet to be tested
+  $node403->status = 1;        // 1 means published
+  $node403->promote = 0;
+  $node403->revision = 0;
+  $node403->path['alias'] = 'access-denied';
+  node_submit($node403);
+  node_save($node403);
+
+
+
+
   //-- Page 404 error page
   $node404 = new stdClass();
   $node404->type = 'page';
   node_object_prepare($node404);
-  
-  $node404->title    = '404 Page';
+
+  $node404->title    = 'Not found';
   $node404->language = LANGUAGE_NONE;
   $node404->body[$node404->language][0]['value']   = node404();
   $node404->body[$node404->language][0]['format']  = 'full_html';
@@ -163,9 +185,10 @@ function pncextras_install() {
   $node404->status = 1;        // 1 means published
   $node404->promote = 0;
   $node404->revision = 0;
-  $node404->path['alias'] = 'page404';
+  $node404->path['alias'] = 'not-found';
   node_submit($node404);
   node_save($node404);
+
 
 
 
@@ -174,7 +197,7 @@ function pncextras_install() {
   $node->type = 'page';
   node_object_prepare($node);
 
-  $node->title    = 'about';
+  $node->title    = 'About';
   $node->language = LANGUAGE_NONE;
   $node->menu['enabled'] = 1;       // 1 to enable providing a link in main menu
   $node->menu['link_title'] = 'About';
@@ -191,6 +214,8 @@ function pncextras_install() {
   $node->path['alias'] = 'about';
   node_submit($node);
   node_save($node);
+
+
 
 
   //-- Set mobile menu
