@@ -168,6 +168,7 @@ function pncextras_install() {
    node_submit($node403);
    node_save($node403);
 
+   variable_set('site_403', 'node/1');
 
 
 
@@ -189,7 +190,7 @@ function pncextras_install() {
    node_submit($node404);
    node_save($node404);
 
-
+   variable_set('site_404', 'node/2');
 
 
    //-- About page
