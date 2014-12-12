@@ -74,17 +74,17 @@
  </div>';
 }
 
+/*
 
-
-function 404Node(){
+function node404(){
   return '<div class="404 page-error">This is 404</div>';
 }
 
 
-function 403Node(){
+function node403(){
   return '<div class="403  page-error">This is 403</div>';
 }
-
+*/
 
 /**
  * Implements hook_install().
@@ -155,7 +155,7 @@ function pncextras_install() {
   node_object_prepare($node404);
   $node404->title    = '404';
   $node404->language = LANGUAGE_NONE;
-  $node404->body[$node->language][0]['value']   = 404Node();
+  $node404->body[$node->language][0]['value']   = node404();
   $node404->body[$node->language][0]['format']  = 'full_html';
   $node404->changed = $_SERVER['REQUEST_TIME']; //yet to be tested
   $node404->created = $_SERVER['REQUEST_TIME']; //yet to be tested
