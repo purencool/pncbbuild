@@ -226,6 +226,9 @@ function pncextras_install() {
 
    //-- Set mobile menu
    if (module_exists('mobile_navigation')) {
+     variable_set('mobile_navigation_width', 
+      'all and (min-width: 768px) and (min-device-width: 768px),
+      (max-device-width: 800px) and (min-width: 768px) and (orientation:landscape)');
      variable_set('mobile_navigation_menuselector', '.navigation-region nav ul');
      variable_set('mobile_navigation_plugin', 'slideMenu');
      variable_set('mobile_navigation_showEffect', 'fixed_left');
