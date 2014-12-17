@@ -226,7 +226,7 @@ function pncextras_install() {
 
    //-- Set mobile menu
    if (module_exists('mobile_navigation')) {
-     variable_set('mobile_navigation_width', 
+     variable_set('mobile_navigation_width',
       'all and (min-width: 768px) and (min-device-width: 768px),
       (max-device-width: 800px) and (min-width: 768px) and (orientation:landscape)');
      variable_set('mobile_navigation_menuselector', '.navigation-region nav ul');
@@ -238,6 +238,18 @@ function pncextras_install() {
      variable_set('mobile_navigation_tabhandler', '0');
      variable_set('mobile_navigation_useMask', '0');
    }
+
+
+
+
+   //-- Set mobile menu
+   if (module_exists('jquery_update')) {
+     variable_set('jquery_update_compression_type','min');
+     variable_set('jquery_update_jquery_admin_version', '');
+     variable_set('jquery_update_jquery_cdn', 'none');
+     variable_set('jquery_update_jquery_version', '1.10');
+   }
+
 
    drupal_flush_all_caches();
 
