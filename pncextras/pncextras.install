@@ -147,7 +147,22 @@ function pncextras_install() {
    ->condition('delta', 'main-menu', '=')
    ->execute();
 
-
+   //-- Help block
+     db_update('block')
+     ->fields(array(
+       'status' => 1,
+       'region' => 'header',
+       'title' => '<none>',
+       'status' => '1',
+       'visibility' => '0',
+       'pages' => 'user
+                   user/*
+                   admin
+                   admin/*',
+     ))
+     ->condition('theme', 'pncmbtheme', '=')
+     ->condition('module', 'pnchelp', '=')
+     ->execute();
 
 
    //-- Page 403 error page
