@@ -153,9 +153,12 @@ function pncextras_install() {
        'status' => 1,
        'region' => 'content',
        'title' => '<none>',
-       'status' => '1',
+       'status' => '0',
        'visibility' => '1',
-       'pages' => 'user user/* admin admin/*',
+       'pages' => 'admin/*
+admin/
+user/
+user/*',
      ))
      ->condition('theme', 'pncmbtheme', '=')
      ->condition('module', 'pnchelp', '=')
@@ -166,11 +169,14 @@ function pncextras_install() {
      db_update('block')
        ->fields(array(
          'status' => 1,
-         'region' => 'content',
+         'region' => 'dashboard_sidebar',
          'title' => '<none>',
-         'status' => '1',
+         'status' => '0',
          'visibility' => '1',
-         'pages' => 'user  user/* admin admin/*',
+         'pages' => 'admin/*
+admin/
+user/
+user/*',
        ))
        ->condition('theme', 'seven', '=')
        ->condition('module', 'pnchelp', '=')
