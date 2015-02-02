@@ -151,10 +151,10 @@ function pncextras_install() {
      db_update('block')
      ->fields(array(
        'status' => 1,
-       'region' => 'header',
+       'region' => 'content',
        'title' => '<none>',
        'status' => '1',
-       'visibility' => '0',
+       'visibility' => '1',
        'pages' => 'user user/* admin admin/*',
      ))
      ->condition('theme', 'pncmbtheme', '=')
@@ -169,7 +169,7 @@ function pncextras_install() {
          'region' => 'content',
          'title' => '<none>',
          'status' => '1',
-         'visibility' => '0',
+         'visibility' => '1',
          'pages' => 'user  user/* admin admin/*',
        ))
        ->condition('theme', 'seven', '=')
