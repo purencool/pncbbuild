@@ -155,14 +155,26 @@ function pncextras_install() {
        'title' => '<none>',
        'status' => '1',
        'visibility' => '0',
-       'pages' => 'user
-                   user/*
-                   admin
-                   admin/*',
+       'pages' => 'user user/* admin admin/*',
      ))
      ->condition('theme', 'pncmbtheme', '=')
      ->condition('module', 'pnchelp', '=')
      ->execute();
+
+
+     //-- Help block
+     db_update('block')
+       ->fields(array(
+         'status' => 1,
+         'region' => 'content',
+         'title' => '<none>',
+         'status' => '1',
+         'visibility' => '0',
+         'pages' => 'user  user/* admin admin/*',
+       ))
+       ->condition('theme', 'seven', '=')
+       ->condition('module', 'pnchelp', '=')
+       ->execute();
 
 
    //-- Page 403 error page
