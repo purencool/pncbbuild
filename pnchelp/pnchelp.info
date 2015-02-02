@@ -1,0 +1,5 @@
+name = Purencool help block
+description = Creates a list of help articles block
+version = 1.0
+package = Purencool
+core = 7.x
