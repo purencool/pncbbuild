@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * An example of how to use the new #states Form API element, allowing
@@ -7,58 +6,10 @@
  */
 
 /**
- * States demo form.
- *
- * This form shows off the #states system by dynamically showing parts of the
- * form based on the state of other parts.
- *
- * @ingroup form_example
- *
- * The basic idea is that you add a #states property to the element which is
- * to be changed based on some action elsewhere on the form. The #states
- * property lists a change which is to be made, and under what conditions
- * that change should be made.
- *
- * For example, in the 'tests_taken' form element below we have:
- * @code
- * '#states' => array(
- *   'visible' => array(
- *     ':input[name="student_type"]' => array('value' => 'high_school'),
- *   ),
- * ),
- * @endcode
- * Meaning that the element is to be made visible when the condition is met.
- * The condition is a combination of a jQuery selector (which selects the
- * element we want to test) and a condition for that element. In this case,
- * the condition is whether the return value of the 'student_type' element is
- * 'high_school'. If it is, this element will be visible.
- *
- * So the syntax is:
- * @code
- * '#states' => array(
- *   'action_to_take_on_this_form_element' => array(
- *     'jquery_selector_for_another_element' => array(
- *       'condition_type' => value,
- *     ),
- *   ),
- * ),
- * @endcode
- *
- * If you need an action to take place only when two different conditions are
- * true, then you add both of those conditions to the action. See the
- * 'country_writein' element below for an example.
- *
- * Note that the easiest way to select a textfield, checkbox, or select is with
- * the
- * @link http://api.jquery.com/input-selector/ ':input' jquery shortcut @endlink,
- * which selects any any of those.
- *
- * There are examples below of changing or hiding an element when a checkbox
- * is checked, when a textarea is filled, when a select has a given value.
- *
- * See drupal_process_states() for full documentation.
- *
- * @see forms_api_reference.html
+ * 
+ * @param array $form
+ * @param array $form_state
+ * @return array
  */
 function form_pncsitedetails($form, &$form_state) {
   $form['description'] = array(
@@ -128,6 +79,12 @@ function form_pncsitedetails($form, &$form_state) {
     '#default_value' => variable_get('pnc_sunday'),
   );
   
+  $form['business_hours']['other_trading_hours'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Other trading hours'),
+    '#default_value' => variable_get('pnc_trading_hours'),
+  );
+  
   $form['business_details'] = array(
     '#type' => 'fieldset',
     '#title' => t('Business Details'),
@@ -169,10 +126,7 @@ function form_pncsitedetails($form, &$form_state) {
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => 'Submit',
-  );
-
-
-  
+  ); 
  
   return $form;
 }
@@ -181,31 +135,14 @@ function form_pncsitedetails($form, &$form_state) {
  * Submit handler for form_example_states_form().
  */
 function form_pncsitedetails_submit($form, &$form_state) {
-  _pnc_set_site_details($form_state);
-  
-  
-  $x = variable_get('pnc_twitter');
-  $x .= variable_get('pnc_twitter');
-  $x .=  variable_get('pnc_facebook');
-  $x .=  variable_get('pnc_linkedin');
-  $x .=  variable_get('pnc_monday');
-  $x .=  variable_get('pnc_tuesday');
-  $x .=  variable_get('pnc_wednesday');
-  $x .=  variable_get('pnc_thursday');
-  $x .=  variable_get('pnc_friday');
-  $x .=  variable_get('pnc_saturday');
-  $x .=  variable_get('pnc_sunday');
-  $x .=  variable_get('pnc_address');
-  $x .=  variable_get('pnc_postal_address');
-  $x .=  variable_get('pnc_phone');
-  $x .=  variable_get('pnc_business_fax');
-  $x .=  variable_get('pnc_business_email');
-  $x .=  variable_get('pnc_business_abn_acn');
-   
-  //drupal_set_message(t('Updates site details @values', array('@values' => $x)));
-  //drupal_set_message(t('Submitting values: @values', array('@values' => var_export($form_state['values'], TRUE))));
+  _pnc_set_site_details($form_state);   
+  drupal_set_message(t('Updates site details @values', array('@values' =>'The website details have been updated')));
 
 }
+/**
+ * 
+ * @param array $form_state
+ */
 
 function _pnc_set_site_details($form_state) {	
    variable_set('pnc_twitter', $form_state['values']['twitter']);
@@ -218,6 +155,7 @@ function _pnc_set_site_details($form_state) {
    variable_set('pnc_friday', $form_state['values']['friday'] );
    variable_set('pnc_saturday', $form_state['values']['saturday'] );
    variable_set('pnc_sunday', $form_state['values']['sunday'] );
+   variable_set('pnc_trading_hours', $form_state['values']['other_trading_hours'] );
    variable_set('pnc_address', $form_state['values']['address'] );
    variable_set('pnc_postal_address', $form_state['values']['postal_address'] );
    variable_set('pnc_phone', $form_state['values']['phone'] );

@@ -40,6 +40,7 @@ $blocks['pncsitesocial_block'] = array(
     'status' => 1,
     'region' => 'header',
     'theme'=>'pncmbtheme',
+    'title'=>'<none>',
 );
 $blocks['pncsitehours_block'] = array(
     'info' => t('Website Business Hours Details '),
@@ -85,7 +86,7 @@ function pncsitedetails_block_view($delta = '') {
 	 || !empty(variable_get('pnc_saturday'))
 	 || !empty(variable_get('pnc_sunday'))) {	      
             $block = array(
-              'subject' => t('Opening Hours'),
+              'subject' => t('Trading Hours'),
               'content' => _pnc_get_hours_info(),
             );
 	 }
@@ -148,13 +149,32 @@ function _pnc_get_social_info() {
 function _pnc_get_hours_info() {
 	
   $output = "<ul class='pnc-hours'>";
-    $output .= "<li><span>Monday </span><span>".variable_get('pnc_monday') ."</span></li>";
-    $output .= "<li><span>Tuesday </span><span>".variable_get('pnc_tuesday') ."</span></li>";
-    $output .= "<li><span>Wednesday </span><span>".variable_get('pnc_wednesday') ."</span></li>";
-    $output .= "<li><span>Thusday </span><span>".variable_get('pnc_thursday') ."</span></li>";
-    $output .= "<li><span>Friday </span><span>".variable_get('pnc_friday') ."</span></li>";
-    $output .= "<li><span>Saturday </span><span>".variable_get('pnc_saturday') ."</span></li>";
-    $output .= "<li><span>Sunday </span><span>".variable_get('pnc_sunday') ."</span></li>";
+    if(!empty(variable_get('pnc_monday'))) {
+      $output .= "<li><span>Monday </span><span>".variable_get('pnc_monday') ."</span></li>";
+    }
+    if(!empty(variable_get('pnc_tuesday'))) {
+      $output .= "<li><span>Tuesday </span><span>".variable_get('pnc_tuesday') ."</span></li>";
+    }
+    if(!empty(variable_get('pnc_wednesday'))) {
+      $output .= "<li><span>Wednesday </span><span>".variable_get('pnc_wednesday') ."</span></li>";
+    }
+    if(!empty(variable_get('pnc_thursday'))) {
+      $output .= "<li><span>Thursday </span><span>".variable_get('pnc_thursday') ."</span></li>";
+    }
+    if(!empty(variable_get('pnc_friday'))) {
+      $output .= "<li><span>Friday </span><span>".variable_get('pnc_friday') ."</span></li>";
+    }
+    if(!empty(variable_get('pnc_saturday'))) {
+      $output .= "<li><span>Saturday </span><span>".variable_get('pnc_saturday') ."</span></li>";
+    }
+    if(!empty(variable_get('pnc_sunday'))) {
+      $output .= "<li><span>Sunday </span><span>".variable_get('pnc_sunday') ."</span></li>";
+    }  
+    if(!empty(variable_get('pnc_trading_hours'))) {
+      $output .= "<li><span>Other </span><span>".variable_get('pnc_trading_hours') ."</span></li>";
+    }
+    
+    
   $output .= "</ul>";
  
   return $output;
