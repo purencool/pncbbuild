@@ -57,21 +57,34 @@ function pncsitedetails_block_view($delta = '') {
 
   switch ($delta) {
     case 'pncsitesocial_block':
-      $block = array(
-        'subject' => t('Social Networking'),
-        'content' => _pnc_get_social_info(),
-      );
+      if(   !empty(variable_get('pnc_twitter')) 
+	 || !empty(variable_get('pnc_facebook'))
+	 || !empty(variable_get('pnc_linkedin')) 
+         || !empty(variable_get('pnc_business_email'))) {
+            $block = array(
+              'subject' => t('Social Networking'),
+              'content' => _pnc_get_social_info(),
+          );
+	}
       break;
       case 'pncsitehours_block':
-      $block = array(
-        'subject' => t('Opening Hours'),
-        'content' => _pnc_get_hours_info(),
-      );
+       if(  !empty(variable_get('pnc_monday')) 
+	 || !empty(variable_get('pnc_tuesday'))
+	 || !empty(variable_get('pnc_wednesday')) 
+         || !empty(variable_get('pnc_thursday'))
+	 || !empty(variable_get('pnc_friday'))
+	 || !empty(variable_get('pnc_saturday'))
+	 || !empty(variable_get('pnc_sunday'))) {	      
+            $block = array(
+              'subject' => t('Opening Hours'),
+              'content' => _pnc_get_hours_info(),
+            );
+	 }
       break;
       case 'pncsitecontact_block':
-      if(   !empty(variable_get('pnc_address')) 
-	 || !empty(variable_get('pnc_postal_address'))
-	 || !empty(variable_get('pnc_phone')) 
+      if(   !empty(variable_get('pnc_twitter')) 
+	 || !empty(variable_get('pnc_facebook'))
+	 || !empty(variable_get('pnc_linkedin')) 
          || !empty(variable_get('pnc_business_fax'))
 	 || !empty(variable_get('pnc_business_abn_acn'))) {
 	      
@@ -110,7 +123,7 @@ function _pnc_get_social_info() {
 	. "</li>";
     }
     
-    if(!empty(variable_get('pnc_email'))) {
+    if(!empty(variable_get('pnc_business_email'))) {
         $output .= "<li class='email'>"
 	. "<a href='https://linkedin.com/".variable_get('pnc_business_email')."'>".variable_get('pnc_business_email') ."</a>"
 	. "</li>";
