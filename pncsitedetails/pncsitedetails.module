@@ -39,18 +39,21 @@ $blocks['pncsitesocial_block'] = array(
     'cache' => DRUPAL_NO_CACHE,
     'status' => 1,
     'region' => 'header',
+    'theme'=>'pncmbtheme',
 );
 $blocks['pncsitehours_block'] = array(
     'info' => t('Website Business Hours Details '),
     'cache' => DRUPAL_NO_CACHE,
     'status' => 1,
-    'region' => 'content',
+    'region' => 'sidebar_first',
+    'theme'=>'pncmbtheme',
 );
 $blocks['pncsitecontact_block'] = array(
     'info' => t('Website Business Contact Details'),
     'cache' => DRUPAL_NO_CACHE,
     'status' => 1,
-    'region' => 'content',
+    'region' => 'sidebar_first',
+    'theme'=>'pncmbtheme',
 );
  return $blocks;
 }
