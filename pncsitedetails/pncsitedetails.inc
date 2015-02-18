@@ -136,7 +136,7 @@ function form_pncsitedetails($form, &$form_state) {
  */
 function form_pncsitedetails_submit($form, &$form_state) {
   _pnc_set_site_details($form_state);   
-  drupal_set_message(t('Updates site details @values', array('@values' =>'The website details have been updated')));
+  drupal_set_message(t('Your website details have been updated'));
 
 }
 /**
