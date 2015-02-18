@@ -9,7 +9,7 @@
  * Implements hook_install().
  */
 function pncsitedetails_install() {
-
+/*
    //-- Install site contact
    db_insert('block')
    ->fields(array(
@@ -53,5 +53,5 @@ function pncsitedetails_install() {
 
 
    drupal_flush_all_caches();
-
+*/
 }
