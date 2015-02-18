@@ -136,7 +136,7 @@ function pncextras_install() {
    ->condition('module', 'search', '=')
    ->execute();
 
-   //-- Move menu block to the navigation
+   //-- Move menu-menu block to the navigation
    db_update('block')
    ->fields(array(
      'status' => 1,
@@ -146,7 +146,18 @@ function pncextras_install() {
    ->condition('theme', 'pncmbtheme', '=')
    ->condition('delta', 'main-menu', '=')
    ->execute();
+   
+   
+    //-- Disable navigation block
+   db_update('block')
+   ->fields(array(
+     'region' => -1,
+   ))
+   ->condition('theme', 'pncmbtheme', '=')
+   ->condition('delta', 'navigation', '=')
+   ->execute();
 
+   
    //-- Help block
      db_update('block')
      ->fields(array(
