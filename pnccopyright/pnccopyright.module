@@ -17,6 +17,7 @@ $blocks['purencool_copyright'] = array(
     'status' => 1,
     'region' => 'footer',
     'theme'=>'pncmbtheme',
+    'title'=>'<none>',
  );
  return $blocks;
 }
