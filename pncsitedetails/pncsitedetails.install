@@ -23,7 +23,7 @@ function pncsitedetails_install() {
      
    ))
    ->execute();
- 
+   
     //-- Install site hours
     db_insert('block')
    ->fields(array(
@@ -37,11 +37,6 @@ function pncsitedetails_install() {
    ))
    ->execute();
    
-   */
-   $block = module_invoke("pncsitedetails", "pncmbtheme", "pncsitehours_block");
-drupal_add_region_content("sidebar_first", theme("block", $block));
-/* 
- 
    //-- Install site social links
    db_insert('block')
    ->fields(array(
