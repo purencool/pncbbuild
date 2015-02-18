@@ -13,8 +13,11 @@ $blocks = array();
 
 $blocks['purencool_copyright'] = array(
     'info' => t('Purencool Copyright'),
-    'cache' => DRUPAL_NO_CACHE
-    );
+    'cache' => DRUPAL_NO_CACHE,
+    'status' => 1,
+    'region' => 'footer',
+    'theme'=>'pncmbtheme',
+ );
  return $blocks;
 }
 
