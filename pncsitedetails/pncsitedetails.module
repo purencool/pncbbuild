@@ -103,9 +103,9 @@ function pncsitedetails_block_view($delta = '') {
 	 }
       break;
       case 'pncsitecontact_block':
-      if(   !empty(variable_get('pnc_twitter')) 
-	 || !empty(variable_get('pnc_facebook'))
-	 || !empty(variable_get('pnc_linkedin')) 
+      if(   !empty(variable_get('pnc_address')) 
+	 || !empty(variable_get('pnc_postal_address'))
+	 || !empty(variable_get('pnc_phone')) 
          || !empty(variable_get('pnc_business_fax'))
 	 || !empty(variable_get('pnc_business_abn_acn'))) {
 	      
