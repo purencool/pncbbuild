@@ -38,7 +38,7 @@ $blocks['pncsitesocial_block'] = array(
     'info' => t('Website Social Networking Details'),
     'cache' => DRUPAL_NO_CACHE,
     'status' => 1,
-    'region' => 'content',
+    'region' => 'header',
     'visibility' => BLOCK_VISIBILITY_LISTED,
 );
 $blocks['pncsitehours_block'] = array(
