@@ -1,0 +1,53 @@
+<?php
+/**
+ * @file
+ * Added site details to standard drupal build.
+ */
+
+
+/**
+ * Implements hook_install().
+ */
+function pncsitedetails_install() {
+
+   //-- Install site contact
+   db_update('block')
+   ->fields(array(
+     'region' => 'sidebar_first',
+     'status' => 1,
+     'custom' => 0,
+     'visibility'=>0,  
+   ))
+   ->condition('theme','pncmbtheme', '=')
+   ->condition('delta', 'pncsitecontact_block', '=')
+   ->execute();
+   
+   
+    //-- Install site hours
+   db_update('block')
+   ->fields(array(
+     'region' => 'sidebar_first',
+     'status' => 1,
+     'custom' => 0,
+     'visibility'=>0,  
+   ))
+   ->condition('theme','pncmbtheme', '=')
+   ->condition('delta', 'pncsitehours_block', '=')
+   ->execute();
+   
+   //-- Install site social links
+   db_update('block')
+   ->fields(array(
+     'region' => 'sidebar_first',
+     'status' => 1,
+     'custom' => 0,
+     'visibility'=>0,  
+   ))
+   ->condition('theme','pncmbtheme', '=')
+   ->condition('delta', 'pncsitesocial_block', '=')
+   ->execute();
+
+
+   drupal_flush_all_caches();
+
+}

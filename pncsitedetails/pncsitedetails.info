@@ -1,0 +1,6 @@
+name = Purencool site details
+description = Site details.
+package = Purencool
+core = 7.x
+
+
