@@ -11,40 +11,44 @@
 function pncsitedetails_install() {
 
    //-- Install site contact
-   db_update('block')
+   db_insert('block')
    ->fields(array(
      'region' => 'sidebar_first',
      'status' => 1,
      'custom' => 0,
-     'visibility'=>0,  
+     'visibility'=>0, 
+     'delta'=>'pncsitecontact_block',
+     'module' => 'pncsitedetails',
+     'theme'=>'pncmbtheme'
+     
    ))
-   ->condition('theme','pncmbtheme', '=')
-   ->condition('delta', 'pncsitecontact_block', '=')
    ->execute();
    
    
     //-- Install site hours
-   db_update('block')
+    db_insert('block')
    ->fields(array(
      'region' => 'sidebar_first',
      'status' => 1,
      'custom' => 0,
      'visibility'=>0,  
+     'delta'=>'pncsitehours_block',
+     'module' => 'pncsitedetails',
+     'theme'=>'pncmbtheme'
    ))
-   ->condition('theme','pncmbtheme', '=')
-   ->condition('delta', 'pncsitehours_block', '=')
    ->execute();
    
    //-- Install site social links
-   db_update('block')
+   db_insert('block')
    ->fields(array(
      'region' => 'sidebar_first',
      'status' => 1,
      'custom' => 0,
      'visibility'=>0,  
+     'delta'=>'pncsitesocial_block',
+     'module' => 'pncsitedetails',
+     'theme'=>'pncmbtheme'  
    ))
-   ->condition('theme','pncmbtheme', '=')
-   ->condition('delta', 'pncsitesocial_block', '=')
    ->execute();
 
 
