@@ -29,6 +29,17 @@ function pncsitedetails_menu() {
 }
  
 /**
+ * Implements hook_permission().
+ */
+function pncsitedetails_permission() {
+  return array(
+    'access editor control panel' => array(
+      'title' => t('Access editor control panel'),
+    )
+  );
+}
+
+/**
  * Implements hook_block_info().
  */
 function pncsitedetails_block_info() {
