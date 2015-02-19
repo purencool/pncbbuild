@@ -35,6 +35,7 @@ function pncgoogleadd_block_view($delta = '') {
         'region' => 'sidebar_first',
         'theme'=>'pncmbtheme',
         'title'=>'<none>',
+	'weight'=>'14'
         'content' => _pnc_get_google_block_info(),
       );
       break;
