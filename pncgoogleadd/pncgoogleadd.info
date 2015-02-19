@@ -1,0 +1,5 @@
+name = Purencool Google add block
+description = Creates a block for Google Adds
+version = 1.0
+package = Purencool
+core = 7.x
