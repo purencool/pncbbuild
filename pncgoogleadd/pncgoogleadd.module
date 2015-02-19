@@ -31,9 +31,9 @@ function pncgoogleadd_block_view($delta = '') {
       $block = array(
         'subject' => t('Google Add Block'),
 	'cache' => DRUPAL_NO_CACHE,
-	'status' => 1,
-	'region' => 'sidebar_first',
-	'theme'=>'pncmbtheme',
+        'status' => 1,
+        'region' => 'sidebar_first',
+        'theme'=>'pncmbtheme',
         'title'=>'<none>',
         'content' => _pnc_get_google_block_info(),
       );
