@@ -24,19 +24,25 @@ function form_pncsitedetails($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Twitter'),
     '#default_value' => variable_get('pnc_twitter'),
-    '#suffix' => '<small>https://twitter.com/my-twitter-name-is-needed</small>',
+    '#attributes' => array(
+       'placeholder' => t('https://twitter.com/my-twitter-name-is-needed'),
+     ),
   );
   $form['social']['facebook'] = array(
     '#type' => 'textfield',
     '#title' => t('Facebook'),
     '#default_value' => variable_get('pnc_facebook'),
-    '#suffix' => '<small>https://facebook.com/my-facebook-name-is-needed</small>',
+    '#attributes' => array(
+       'placeholder' => t('https://facebook.com/my-facebook-name-is-needed'),
+    ),
   );
   $form['social']['linkedin'] = array(
     '#type' => 'textfield',
     '#title' => t('Linkedin'),
     '#default_value' =>  variable_get('pnc_linkedin'),
-    '#suffix' => '<small>https://linkedin.com/my-linkedin-name-is-needed</small>',
+    '#attributes' => array(
+       'placeholder' => t('https://linkedin.com/my-linkedin-name-is-needed'),
+    ),
   );
   $form['business_hours'] = array(
     '#type' => 'fieldset',
