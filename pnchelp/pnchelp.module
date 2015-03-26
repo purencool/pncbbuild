@@ -7,14 +7,39 @@
  *
  */
 
-
+/**
+ * Implements hook_block_info().
+ */
 function pnchelp_block_info() {
 $blocks = array();
 
-$blocks['purencool_help'] = array(
-    'info' => t('Purencool help block'),
-    'cache' => DRUPAL_NO_CACHE
-    );
+  $blocks['pnchelp1_block'] = array(
+    'info' => t('Help 1'),
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 15,
+    'status' => 1,
+    'region' => 'footer',
+    'theme'=>'pncmbtheme',
+    'title'=>'<none>',
+  );
+  $blocks['pnchelp2_block'] = array(
+    'info' => t('Help 2 '),
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 14,
+    'status' => 1,
+    'region' => 'footer',
+    'theme'=>'pncmbtheme',
+    'title'=>'<none>',
+  );
+  $blocks['pnchelp3_block'] = array(
+    'info' => t('Help 3'),
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 13,
+    'status' => 1,
+    'region' => 'footer',
+    'theme'=>'pncmbtheme',
+    'title'=>'<none>',
+  );
  return $blocks;
 }
 
@@ -23,29 +48,68 @@ $blocks['purencool_help'] = array(
  */
 function pnchelp_block_view($delta = '') {
   $block = array();
+  $url = request_uri();
 
   switch ($delta) {
-    case 'purencool_help':
-      $block = array(
-        'subject' => t('Help block'),
-        'content' => _pnc_get_block_info(),
-      );
+    case 'pnchelp1_block':
+      if(preg_match('/\/user\/[0-9]\/edit/', $url)) {
+          $block = array(
+              //'subject' => t('pnchelp1_block'),
+              'content' => _pnc_get_block_help_one(),
+          );
+       }
+      break;
+      case 'pnchelp2_block':
+       if(strpos($url, "user") && !preg_match('/\/user\/[0-9]\/edit/', $url) ) {
+            $block = array(
+              //'subject' => t('pnchelp2_block'),
+              'content' => _pnc_get_block_help_two(),
+            );
+	 }
+      break;
+      case 'pnchelp3_block':
+      if(strpos($url, "admin/editorpanel")) {
+            $block = array(
+              //'subject' => t('pnchelp3_block'),
+              'content' => _pnc_get_block_help_three(),
+            );
+	 }
       break;
   }
   return $block;
 }
 
+
+
 /**
  * Adds content to the block
  * @return string
  */
-function _pnc_get_block_info() {
+function _pnc_get_block_help_two() {
 
   $output = "<div id='pnc-help'>
-    <div>
-      Help 
+    <div class='help-slide'>
+      Help Two
     </div>
-    <h3>Help<h3>
+      <a href='#' class='help-slide-c'>Help</a>
+  </div>
+  ";
+
+  return $output;
+}
+
+
+/**
+ * Adds content to the block
+ * @return string
+ */
+function _pnc_get_block_help_three() {
+
+  $output = "<div id='pnc-help'>
+    <div class='help-slide'>
+      Help Three
+    </div>
+     <a href='#' class='help-slide-c'>Help</a>
   </div>
   ";
 
