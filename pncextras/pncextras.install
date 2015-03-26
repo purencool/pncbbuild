@@ -261,7 +261,7 @@ user/*',
    node_save($node);
 
 
-
+   variable_set('site_frontpage', 'node/3');
 
    //-- Set mobile menu
    if (module_exists('module_filter')) {
