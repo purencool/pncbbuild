@@ -80,6 +80,23 @@ function pnchelp_block_view($delta = '') {
 }
 
 
+/**
+ * Adds content to the block
+ * @return string
+ */
+function _pnc_get_block_help_one() {
+
+  $output = "<div id='pnc-help'>
+    <div class='help-slide'>
+      Help Two
+    </div>
+      <a href='#' class='help-slide-c'>Help</a>
+  </div>
+  ";
+
+  return $output;
+}
+
 
 /**
  * Adds content to the block
