@@ -7,7 +7,6 @@
  * Implements hook_install().
  */
 function pnccopyright_update_7001() {
-  //-- Making sure block does not have a block title
   db_update('block')
   ->fields(array(
     'status' => 1,
@@ -18,18 +17,3 @@ function pnccopyright_update_7001() {
   ->condition('module', 'pnccopyright', '=')
   ->execute();
 }
-
-/*
-function pnccopyright_uninstall() {
-  $query = db_select('node','n');
-  $query->fields('n', array('nid'))
-  ->condition('type', 'homepage_blocks')
-  $data=$query->execute();
-  while($result=$data->fetchObject()){
-    node_delete($result->nid);
-
-  }
-  drupal_flush_all_caches();
-
-}
-*/

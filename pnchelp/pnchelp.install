@@ -1,0 +1,25 @@
+<?php
+/**
+ * @file
+ * Added extra to standard drupal build.
+ */
+
+
+/**
+ * Implements hook_install().
+ */
+function pnchelp_install() {
+
+     //-- Help block
+     db_update('block')
+       ->fields(array(
+         'status' => 1,
+         'region' => 'footer',
+         'title' => '<none>',
+         'status' => '0',
+         'visibility' => '1',
+       ))
+       ->condition('theme', 'pncmbtheme', '=')
+       ->condition('module', 'pnchelp', '=')
+       ->execute();
+}

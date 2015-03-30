@@ -54,7 +54,7 @@ function pnchelp_block_view($delta = '') {
     case 'pnchelp1_block':
       if(preg_match('/\/user\/[0-9]\/edit/', $url)) {
           $block = array(
-              //'subject' => t('pnchelp1_block'),
+              'subject' => t('pnchelp1_block'),
               'content' => _pnc_get_block_help_one(),
           );
        }
@@ -62,7 +62,7 @@ function pnchelp_block_view($delta = '') {
       case 'pnchelp2_block':
        if(strpos($url, "user") && !preg_match('/\/user\/[0-9]\/edit/', $url) ) {
             $block = array(
-              //'subject' => t('pnchelp2_block'),
+              'subject' => t('pnchelp2_block'),
               'content' => _pnc_get_block_help_two(),
             );
 	 }
@@ -70,7 +70,7 @@ function pnchelp_block_view($delta = '') {
       case 'pnchelp3_block':
       if(strpos($url, "admin/editorpanel")) {
             $block = array(
-              //'subject' => t('pnchelp3_block'),
+              'subject' => t('pnchelp3_block'),
               'content' => _pnc_get_block_help_three(),
             );
 	 }

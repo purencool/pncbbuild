@@ -107,7 +107,6 @@ function pncextras_install() {
    user_role_grant_permissions($editor_id, $perms);
 
 
-
    //-- Disable login block
    db_update('block')
    ->fields(array(
@@ -146,8 +145,8 @@ function pncextras_install() {
    ->condition('theme', 'pncmbtheme', '=')
    ->condition('delta', 'main-menu', '=')
    ->execute();
-   
-   
+
+
     //-- Disable navigation block
    db_update('block')
    ->fields(array(
@@ -156,42 +155,6 @@ function pncextras_install() {
    ->condition('theme', 'pncmbtheme', '=')
    ->condition('delta', 'navigation', '=')
    ->execute();
-
-   
-   //-- Help block
-     db_update('block')
-     ->fields(array(
-       'status' => 1,
-       'region' => 'content',
-       'title' => '<none>',
-       'status' => '0',
-       'visibility' => '1',
-       'pages' => 'admin/*
-admin/
-user/
-user/*',
-     ))
-     ->condition('theme', 'pncmbtheme', '=')
-     ->condition('module', 'pnchelp', '=')
-     ->execute();
-
-
-     //-- Help block
-     db_update('block')
-       ->fields(array(
-         'status' => 1,
-         'region' => 'dashboard_sidebar',
-         'title' => '<none>',
-         'status' => '0',
-         'visibility' => '1',
-         'pages' => 'admin/*
-admin/
-user/
-user/*',
-       ))
-       ->condition('theme', 'seven', '=')
-       ->condition('module', 'pnchelp', '=')
-       ->execute();
 
 
    //-- Page 403 error page
@@ -284,8 +247,6 @@ user/*',
    }
 
 
-
-
    //-- Set mobile menu
    if (module_exists('jquery_update')) {
      variable_set('jquery_update_compression_type','min');
@@ -293,8 +254,4 @@ user/*',
      variable_set('jquery_update_jquery_cdn', 'none');
      variable_set('jquery_update_jquery_version', '1.10');
    }
-
-
-   drupal_flush_all_caches();
-
 }
