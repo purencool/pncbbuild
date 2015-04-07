@@ -241,7 +241,7 @@ function _pnc_get_contact_info() {
  */
 function _pnc_get_contact_phone() {
   if(!empty(variable_get('pnc_phone'))) {
-    return "<div class='ph-container'><span class='phone'>Phone </span><span>".variable_get('pnc_phone') ."</span></div>";
+    return "<div class='ph-container'><div><span class='p-text'>Business Phone Number</span><span class='phone'></span><span>".variable_get('pnc_phone') ."</span></div></div>";
   }
 
 }
