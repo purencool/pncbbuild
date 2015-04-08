@@ -13,7 +13,7 @@ function pncsmallwebsite_install() {
    ->fields(array(
      'status' => 1,
      'region' => 'sidebar_first',
-     'title' => '<none>',
+     //'title' => '<none>',
      'weight' => 10,
    ))
    ->condition('theme', 'pncmbtheme', '=')

@@ -14,7 +14,7 @@ function pncsitedetails_menu() {
   $items = array();
 
   $items['admin/editorpanel'] = array(
-    'title' => 'Editor Control Panel',
+    'title' => 'Edit Business Details',
     'page callback' => 'drupal_goto',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('form_pncsitedetails'),
@@ -23,8 +23,7 @@ function pncsitedetails_menu() {
     'type' => MENU_LOCAL_TASK,
     'file' => 'pncsitedetails.inc',
   );
-
-
+   
   return $items;
 }
 
