@@ -163,7 +163,7 @@ function _pnc_get_social_info() {
 
     if(!empty(variable_get('pnc_business_email'))) {
         $output .= "<li class='email'>"
-	. "<a href='https://linkedin.com/".variable_get('pnc_business_email')."'>".variable_get('pnc_business_email') ."</a>"
+	. "<a href='mailto:".variable_get('pnc_business_email')."'>".variable_get('pnc_business_email') ."</a>"
 	. "</li>";
     }
   $output .= "</ul>";
@@ -176,7 +176,7 @@ function _pnc_get_social_info() {
  */
 function _pnc_get_hours_info() {
 
-  $output = "<ul class='pnc-hours'>";
+    $output = "<ul class='pnc-hours'>";
     if(!empty(variable_get('pnc_monday'))) {
       $output .= "<li><span>Monday </span><span>".variable_get('pnc_monday') ."</span></li>";
     }
@@ -198,12 +198,11 @@ function _pnc_get_hours_info() {
     if(!empty(variable_get('pnc_sunday'))) {
       $output .= "<li><span>Sunday </span><span>".variable_get('pnc_sunday') ."</span></li>";
     }
+    
+    $output .= "</ul>";
     if(!empty(variable_get('pnc_trading_hours'))) {
-      $output .= "<li><span>Other </span><span>".variable_get('pnc_trading_hours') ."</span></li>";
+      $output .= "<p><span>Other</span><span>".variable_get('pnc_trading_hours') ."</span></p>";
     }
-
-
-  $output .= "</ul>";
 
   return $output;
 }
@@ -213,23 +212,21 @@ function _pnc_get_hours_info() {
  * @return string
  */
 function _pnc_get_contact_info() {
-
-  $output = "<ul class='pnc-contact'>";
-     if(!empty(variable_get('pnc_address'))) {
-       $output .= "<li><span>Address </span><span>".variable_get('pnc_address') ."</span></li>";
-     }
-     if(!empty(variable_get('pnc_postal_address'))) {
-       $output .= "<li><span>Postal Address </span><span>".variable_get('pnc_postal_address') ."</span></li>";
-     }
-
+     $output = "<ul>";
      if(!empty(variable_get('pnc_business_fax'))) {
        $output .= "<li><span>Fax </span><span>".variable_get('pnc_business_fax') ."</span></li>";
      }
 
      if(!empty(variable_get('pnc_business_abn_acn'))) {
-       $output .= "<li><span>ABN/ACN </span><span>".variable_get('pnc_business_abn_acn') ."</span></li>";
+       $output .= "<li><span>ABN/ACN </span><span>".variable_get('pnc_business_abn_acn') ."</li>";
      }
-  $output .= "</ul>";
+     $output .= "</ul>";
+     if(!empty(variable_get('pnc_address'))) {
+       $output .= "<p class='address'><span>Address </span><span>".variable_get('pnc_address') ."</span></p>";
+     }
+     if(!empty(variable_get('pnc_postal_address'))) {
+       $output .= "<p class='postal'><span>Postal Address </span><span>".variable_get('pnc_postal_address') ."</span></p>";
+     }
 
   return $output;
 
