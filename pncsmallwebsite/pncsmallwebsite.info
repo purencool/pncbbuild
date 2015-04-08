@@ -1,0 +1,5 @@
+name = Purencool Small Website
+description = Purencool extras makes minor changes to the configuration of the Small Website Drupal build once installed it can be disabled.
+version = 1.0
+package = Purencool
+core = 7.x

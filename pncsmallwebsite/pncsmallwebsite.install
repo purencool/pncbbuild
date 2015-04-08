@@ -1,0 +1,22 @@
+<?php
+/**
+ * @file
+ * Added extra to standard drupal build.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function pncsmallwebsite_install() {
+
+   db_update('block')
+   ->fields(array(
+     'status' => 1,
+     'region' => 'sidebar_first',
+     'title' => '<none>',
+     'weight' => 10,
+   ))
+   ->condition('theme', 'pncmbtheme', '=')
+   ->condition('delta', 'testimonial-testimonial', '=')
+   ->execute();
+}
