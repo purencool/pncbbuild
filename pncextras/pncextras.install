@@ -140,7 +140,7 @@ function pncextras_install() {
    
    
     //-- Move testimonials to sidebar
-   db_update('block')
+   /*db_update('block')
    ->fields(array(
      'status' => 1,
      'region' => 'sidebar_first',
@@ -150,7 +150,7 @@ function pncextras_install() {
    ->condition('theme', 'pncmbtheme', '=')
    ->condition('delta', 'testimonial-testimonial', '=')
    ->execute();
-
+*/
 
     //-- Disable navigation block
    db_update('block')
