@@ -40,6 +40,16 @@ $blocks = array();
     'theme'=>'pncmbtheme',
     'title'=>'<none>',
   );
+  
+  $blocks['pnchelp4_block'] = array(
+    'info' => t('Help 4'),
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 13,
+    'status' => 1,
+    'region' => 'footer',
+    'theme'=>'pncmbtheme',
+    'title'=>'<none>',
+  );
  return $blocks;
 }
 
@@ -75,6 +85,14 @@ function pnchelp_block_view($delta = '') {
             );
 	 }
       break;
+      case 'pnchelp4_block':
+      if(!user_is_anonymous()) {
+            $block = array(
+              'subject' => t('pnchelp4_block'),
+              'content' => _pnc_get_block_help_four(),
+            );
+	 }
+      break;
   }
   return $block;
 }
@@ -88,7 +106,9 @@ function _pnc_get_block_help_one() {
 
   $output = "<div id='pnc-help'>
     <div class='help-slide'>
-      Help Two
+    <div class='help-cont'>
+      Help One
+      </div>
     </div>
       <a href='#' class='help-slide-c'>Help</a>
   </div>
@@ -106,7 +126,9 @@ function _pnc_get_block_help_two() {
 
   $output = "<div id='pnc-help'>
     <div class='help-slide'>
+      <div class='help-cont'>
       Help Two
+      </div>
     </div>
       <a href='#' class='help-slide-c'>Help</a>
   </div>
@@ -124,7 +146,33 @@ function _pnc_get_block_help_three() {
 
   $output = "<div id='pnc-help'>
     <div class='help-slide'>
+     <div class='help-cont'>
       Help Three
+      </div>
+    </div>
+     <a href='#' class='help-slide-c'>Help</a>
+  </div>
+  ";
+
+  return $output;
+}
+
+/**
+ * Adds content to the block
+ * @return string
+ */
+function _pnc_get_block_help_four() {
+
+  $output = "<div id='pnc-help'>
+    <div class='help-slide'>
+    <div class='help-cont'>
+       <h2>Help Four</h2>
+       <ol>
+       <li>Do thing one</li>
+        <li>Do thing two</li>
+	 <li>Do thing three</li>
+       </ol>
+      </div>
     </div>
      <a href='#' class='help-slide-c'>Help</a>
   </div>
