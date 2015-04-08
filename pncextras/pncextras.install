@@ -136,6 +136,20 @@ function pncextras_install() {
    ->condition('theme', 'pncmbtheme', '=')
    ->condition('delta', 'main-menu', '=')
    ->execute();
+   
+   
+   
+    //-- Move testimonials to sidebar
+   db_update('block')
+   ->fields(array(
+     'status' => 1,
+     'region' => 'sidebar_first',
+     'title' => '<none>',
+     'weight' => '15',
+   ))
+   ->condition('theme', 'pncmbtheme', '=')
+   ->condition('delta', 'testimonial-testimonial', '=')
+   ->execute();
 
 
     //-- Disable navigation block
