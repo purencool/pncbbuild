@@ -219,14 +219,14 @@ function _pnc_get_contact_info() {
      if(!empty(variable_get('pnc_business_abn_acn'))) {
        $output .= "<li><span>ABN/ACN </span><span>".variable_get('pnc_business_abn_acn') ."</li>";
      }
-     $output .= "</ul>";
+   
      if(!empty(variable_get('pnc_address'))) {
-       $output .= "<p class='address'><span>Address </span><span>".variable_get('pnc_address') ."</span></p>";
+       $output .= "<li class='address'><span>Address </span><span>".variable_get('pnc_address') ."</span></li>";
      }
      if(!empty(variable_get('pnc_postal_address'))) {
-       $output .= "<p class='postal'><span>Postal Address </span><span>".variable_get('pnc_postal_address') ."</span></p>";
+       $output .= "<li class='postal'><span>Postal Address </span><span>".variable_get('pnc_postal_address') ."</span></li>";
      }
-
+       $output .= "</ul>";
   return $output;
 
 }
