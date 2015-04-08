@@ -125,15 +125,6 @@ function pncextras_install() {
    ->condition('delta', 'powered-by', '=')
    ->execute();
 
-   //-- Move search block to the header
-   db_update('block')
-   ->fields(array(
-     'region' => 'header',
-   ))
-   ->condition('theme', 'pncmbtheme', '=')
-   ->condition('delta', 'form', '=')
-   ->condition('module', 'search', '=')
-   ->execute();
 
    //-- Move menu-menu block to the navigation
    db_update('block')
