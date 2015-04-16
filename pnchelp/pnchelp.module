@@ -62,7 +62,7 @@ function pnchelp_block_view($delta = '') {
 
   switch ($delta) {
     case 'pnchelp1_block':
-      if(preg_match('/\/user\/[0-9]\/edit/', $url)) {
+      if(preg_match('/\/user\/[0-9]\/edit/', $url)  || preg_match('/\/users\/\w[a-zA-Z]+/', $url)) {
           $block = array(
               'subject' => t('pnchelp1_block'),
               'content' => _pnc_get_block_help_one(),
@@ -70,7 +70,7 @@ function pnchelp_block_view($delta = '') {
        }
       break;
       case 'pnchelp2_block':
-       if(strpos($url, "user") && !preg_match('/\/user\/[0-9]\/edit/', $url) ) {
+       if(strpos($url, "user") && !preg_match('/\/user\/[0-9]\/edit/', $url)  ) {
             $block = array(
               'subject' => t('pnchelp2_block'),
               'content' => _pnc_get_block_help_two(),
@@ -107,10 +107,12 @@ function _pnc_get_block_help_one() {
   $output = "<div id='pnc-help'>
     <div class='help-slide'>
     <div class='help-cont'>
+	        <a href='#' class='h-slide-mobile'>Close</a>
       Help One
       </div>
     </div>
       <a href='#' class='help-slide-c'>Help</a>
+      <a href='#' class='help-slide-m-c'>Help</a>
   </div>
   ";
 
@@ -127,7 +129,9 @@ function _pnc_get_block_help_two() {
   $output = "<div id='pnc-help'>
     <div class='help-slide'>
       <div class='help-cont'>
-      Help Two
+             <a href='#' class='h-slide-mobile'>Close</a>
+      <h2>How to login</h2>
+         <iframe width='300' height='169' src='https://www.youtube.com/embed/iX-QaNzd-0Y?list=RDiX-QaNzd-0Y&amp;showinfo=0' frameborder='0' allowfullscreen></iframe>
       </div>
     </div>
       <a href='#' class='help-slide-c'>Help</a>
@@ -147,6 +151,7 @@ function _pnc_get_block_help_three() {
   $output = "<div id='pnc-help'>
     <div class='help-slide'>
      <div class='help-cont'>
+              <a href='#' class='h-slide-mobile'>Close</a>
       Help Three
       </div>
     </div>
@@ -166,6 +171,7 @@ function _pnc_get_block_help_four() {
   $output = "<div id='pnc-help'>
     <div class='help-slide'>
     <div class='help-cont'>
+                <a href='#' class='h-slide-mobile'>Close</a>
        <h2>Help Four</h2>
        <ol>
        <li>Do thing one</li>
