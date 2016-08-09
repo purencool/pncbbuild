@@ -36,9 +36,9 @@ function pnccopyright_block_view($delta = '') {
          <div class='copy-right'>
 	   <div>
            <p class='copy-by'> &copy;  ". date("Y") ."  <span class='right-name'></span> all rights reserved</p>
-           <p class='design-by'><a href='http://www.purencool.com.au' 
-	      title='Designed and Developed by Purencool Website Develoment' 
-	      rel='nofollow'>Purencool website development</a>
+           <p class='design-by'><a href='http://purencool.digital' 
+	      title='Purencool Digital' 
+	      rel='nofollow'>Purencool Digital</a>
 	   </p>
 	   </div>
          </div>",
